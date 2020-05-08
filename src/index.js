@@ -4,7 +4,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 import App from "./App";
-import reducers from "./store/counterReducer";
+import reducers from "./store/counterCollectionReducer";
 const store = createStore(reducers);
 
 const rootElement = document.getElementById("root");

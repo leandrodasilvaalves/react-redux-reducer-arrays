@@ -1,12 +1,12 @@
 import React from "react";
 import "./styles.css";
 
-import Counter from "./counter";
+import CounterCollection from "./counterCollection";
 
 export default function App() {
   return (
     <div>
-      <Counter />
+      <CounterCollection />
     </div>
   );
 }
