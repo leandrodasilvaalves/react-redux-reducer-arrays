@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import Counter from "./counter";
 import { bindActionCreators } from "redux";
 import { incrementAction, decrementAction } from "./store/counterReducer";
+import AddCounter from "./addCounter";
+
 import "./counterCollection.css";
 
 const mapStateToProps = state => ({
@@ -22,6 +24,7 @@ const CounterCollection = props => (
         counter={counter}
       />
     ))}
+    <AddCounter />
   </div>
 );
 
