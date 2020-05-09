@@ -1,14 +1,16 @@
 const INCREMENT = "counter/INCREMENT";
-const DECREMENT = "conter/DECREMENT";
+const DECREMENT = "counter/DECREMENT";
 
 const update = (state, mutations) => Object.assign({}, state, mutations);
 
-export const incrementAction = () => ({
-  type: INCREMENT
+export const incrementAction = index => ({
+  type: INCREMENT,
+  payload: index
 });
 
-export const decrementAction = () => ({
-  type: DECREMENT
+export const decrementAction = index => ({
+  type: DECREMENT,
+  payload: index
 });
 
 export const INITIAL_STATE = {
@@ -27,7 +29,6 @@ const reducer = (state = INITIAL_STATE, action) => {
     default:
       break;
   }
-
   state = update(state, { warning: state.value > 5 });
   return state;
 };

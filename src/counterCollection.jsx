@@ -1,22 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import Counter from "./counter";
+import { bindActionCreators } from "redux";
+import { incrementAction, decrementAction } from "./store/counterReducer";
 import "./counterCollection.css";
 
 const mapStateToProps = state => ({
   counters: state
 });
 
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ incrementAction, decrementAction }, dispatch);
+
 const CounterCollection = props => (
   <div className="container">
-    {props.counters.map(value => (
+    {props.counters.map((counter, index) => (
       <Counter
-        incrementAction={() => {}}
-        decrementAction={() => {}}
-        counter={value}
+        key={index}
+        incrementAction={() => props.incrementAction(index)}
+        decrementAction={() => props.decrementAction(index)}
+        counter={counter}
       />
     ))}
   </div>
 );
 
-export default connect(mapStateToProps)(CounterCollection);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CounterCollection);
